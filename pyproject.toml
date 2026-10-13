@@ -1,0 +1,35 @@
+[project]
+name = "scalable-url-shortener"
+version = "0.1.0"
+description = "High-throughput URL shortening service utilizing Base62 encoding and Read-Through caching."
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [
+    { name = "Mahesh Sanjayrao Bhosle", email = "msbhosle.2@gmail.com" }
+]
+dependencies = [
+    "fastapi>=0.111.0",
+    "uvicorn[standard]>=0.30.0",
+    "pydantic>=2.7.0",
+    "pydantic-settings>=2.3.0",
+    "sqlalchemy>=2.0.30",
+    "asyncpg>=0.29.0",
+    "redis>=5.0.4",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.2.0",
+    "pytest-asyncio>=0.23.7",
+    "httpx>=0.27.0",
+    "ruff>=0.4.0",
+]
+
+[tool.ruff]
+line-length = 88
+target-version = "py310"
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
+python_files = ["test_*.py"]
